@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#F5F5F5">
+
+    <!-- BLE Status TextView -->
+    <TextView
+        android:id="@+id/tv_ble_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="BLE Status: Not Connected"
+        android:textSize="18sp"
+        android:textColor="#333"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Graph for Blood Pressure (Systolic & Diastolic) -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_blood_pressure"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ble_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Graph for Heart Rate -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_heart_rate"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/chart_blood_pressure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+    <!-- Graph for Temperature -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_temperature"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/chart_heart_rate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Graph for SpO2 -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_spo2"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/chart_temperature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Latest Values TextView -->
+    <TextView
+        android:id="@+id/tv_latest_values"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Latest Values:\nSystolic: -- mmHg\nDiastolic: -- mmHg\nHeart Rate: -- BPM\nTemperature: -- °C\nSpO2: -- %"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@+id/chart_spo2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Highest Values TextView -->
+    <TextView
+        android:id="@+id/tv_highest_values"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Highest Values:\nSystolic: -- mmHg\nDiastolic: -- mmHg\nHeart Rate: -- BPM\nTemperature: -- °C\nSpO2: -- %"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@+id/tv_latest_values"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Lowest Values TextView -->
+    <TextView
+        android:id="@+id/tv_lowest_values"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lowest Values:\nSystolic: -- mmHg\nDiastolic: -- mmHg\nHeart Rate: -- BPM\nTemperature: -- °C\nSpO2: -- %"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@+id/tv_highest_values"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Last Time Received TextView -->
+    <TextView
+        android:id="@+id/tv_last_time_received"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Last Time Received: --"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lowest_values"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
